@@ -4,6 +4,23 @@ import kotlin.math.min
 
 class Sorting {
 
+    /** Time Complexity Best - o(n), Average - o(n^2), Worst - o(n^2) **/
+    fun bubbleSort(arrayInput: Array<Int>): Array<Int> {
+        var swap = true
+        while(swap){
+            swap = false
+            for(i in 0 until arrayInput.size-1){
+                if(arrayInput[i]>arrayInput[i+1]){
+                    val temp = arrayInput[i]
+                    arrayInput[i] = arrayInput[i+1]
+                    arrayInput[i+1] = temp
+                    swap = true
+                }
+            }
+        }
+        return arrayInput
+    }
+
     /** Time Complexity Best - o(n^2), Average - o(n^2), Worst - o(n^2) **/
     fun selectionSort(arrayInput: Array<Int>) {
         var size = arrayInput.size
@@ -57,8 +74,9 @@ class Sorting {
         }
     }
 
+    /** Time Complexity Best - o(n log n), Average - o(n log n), Worst - o(n log n) **/
     fun mergeSort(list: List<Int>): List<Int> {
-        if(list.size<=1){
+        if (list.size <= 1) {
             return list
         }
         val middleIndex = list.size / 2
@@ -80,16 +98,28 @@ class Sorting {
                 rightIndex++
             }
         }
-        while(leftIndex<leftSubList.size){
+        while (leftIndex < leftSubList.size) {
             newList.add(leftSubList[leftIndex])
             leftIndex++
         }
 
-        while(rightIndex<rightSublist.size){
+        while (rightIndex < rightSublist.size) {
             newList.add(rightSublist[rightIndex])
             rightIndex++
         }
 
         return newList
+    }
+
+    /** Time Complexity Best - o(n log n), Average - o(n log n), Worst - o(n^2) **/
+    fun quickSort(list: List<Int>): List<Int> {
+        if (list.count() < 2) {
+            return list
+        }
+        val pivot = list[list.count() / 2]
+        val equalItems = list.filter { it == pivot }
+        val greaterItems = list.filter { it > pivot }
+        val lesserItems = list.filter { it < pivot }
+        return quickSort(lesserItems) + equalItems + quickSort(greaterItems)
     }
 }

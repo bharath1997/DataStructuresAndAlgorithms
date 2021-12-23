@@ -59,15 +59,19 @@ fun main() {
 //    print(deleteNode)
 
     /**selection sort**/
-    val sorting = Sorting()
+//    val sorting = Sorting()
 //    val array = arrayOf(2,4,5,1,2,9,6,5)
-    val list = mutableListOf(38, 27, 43, 3, 9, 82, 10)
+//    val list = mutableListOf(38, 27, 43, 3, 9, 82, 10)
 //    sorting.selectionSort2(array)
-//    sorting.insertionSort(array)
-   val sortedList = sorting.mergeSort(list)
-    for (i in sortedList){
-        print("$i ")
-    }
+//    sorting.bubbleSort(array)
+//   val sortedList = sorting.mergeSort(list)
+//   val sortedList = sorting.quickSort(list)
+//    for (i in array){
+//        print("$i ")
+//    }
+
+    val coins = arrayOf(25,10,5,1)
+    println(CoinChange().coinChange(coins,44))
 }
 
 fun IntArray.findKLargest(k: Int): Int {
